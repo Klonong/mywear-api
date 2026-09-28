@@ -1,0 +1,800 @@
+[
+  {
+    "slug": "soft-knit-crew-sweater",
+    "name": "Soft Knit Crew Sweater",
+    "gender": "men",
+    "category": "Knitwear",
+    "sport": "Lifestyle",
+    "blurb": "Chunky, soft-touch knit with a relaxed drop shoulder.",
+    "price": 499000,
+    "rating": 4.7,
+    "reviews": 64,
+    "badge": "New",
+    "colors": [
+      {
+        "name": "Off White",
+        "hex": "#f2efe8",
+        "tone": "#f7f5f0",
+        "image": "/hero/sweater.webp"
+      },
+      {
+        "name": "Craft Khaki",
+        "hex": "#8a7f63",
+        "tone": "#cfc8b4"
+      }
+    ],
+    "sizes": [
+      {
+        "label": "A/XS",
+        "stock": 12
+      },
+      {
+        "label": "A/S",
+        "stock": 12
+      },
+      {
+        "label": "A/M",
+        "stock": 12
+      },
+      {
+        "label": "A/L",
+        "stock": 2
+      },
+      {
+        "label": "A/XL",
+        "stock": 12
+      }
+    ],
+    "material": "70% cotton, 30% acrylic",
+    "fit": "Relaxed fit. Model is 180 cm and wears A/M."
+  },
+  {
+    "slug": "light-down-puffer-jacket",
+    "name": "Light Down Puffer Jacket",
+    "gender": "men",
+    "category": "Outerwear",
+    "sport": "Lifestyle",
+    "blurb": "Warm, packable down jacket with a stand collar.",
+    "price": 1290000,
+    "rating": 4.8,
+    "reviews": 152,
+    "badge": "New",
+    "colors": [
+      {
+        "name": "Black",
+        "hex": "#111111",
+        "tone": "#3a3a3a",
+        "image": "/hero/puffer.webp"
+      },
+      {
+        "name": "Navy",
+        "hex": "#1f2a44",
+        "tone": "#5c6680"
+      }
+    ],
+    "sizes": [
+      {
+        "label": "A/XS",
+        "stock": 0
+      },
+      {
+        "label": "A/S",
+        "stock": 12
+      },
+      {
+        "label": "A/M",
+        "stock": 12
+      },
+      {
+        "label": "A/L",
+        "stock": 2
+      },
+      {
+        "label": "A/XL",
+        "stock": 12
+      }
+    ],
+    "material": "Shell 100% nylon. Fill 90% down, 10% feather",
+    "fit": "Regular fit."
+  },
+  {
+    "slug": "easy-care-oxford-shirt",
+    "name": "Easy Care Oxford Shirt",
+    "gender": "men",
+    "category": "Tops",
+    "sport": "Lifestyle",
+    "blurb": "Crisp oxford cotton that stays smooth all day.",
+    "price": 399000,
+    "rating": 4.6,
+    "reviews": 208,
+    "colors": [
+      {
+        "name": "Sky Blue",
+        "hex": "#9fbbe3",
+        "tone": "#cad9ef",
+        "image": "/hero/shirt.webp"
+      },
+      {
+        "name": "Off White",
+        "hex": "#f2efe8",
+        "tone": "#f7f5f0"
+      }
+    ],
+    "sizes": [
+      {
+        "label": "A/XS",
+        "stock": 12
+      },
+      {
+        "label": "A/S",
+        "stock": 12
+      },
+      {
+        "label": "A/M",
+        "stock": 12
+      },
+      {
+        "label": "A/L",
+        "stock": 2
+      },
+      {
+        "label": "A/XL",
+        "stock": 12
+      }
+    ],
+    "material": "100% cotton",
+    "fit": "Regular fit."
+  },
+  {
+    "slug": "wide-straight-trousers",
+    "name": "Wide Straight Trousers",
+    "gender": "men",
+    "category": "Bottoms",
+    "sport": "Lifestyle",
+    "blurb": "Pleated trousers with a wide, straight leg.",
+    "price": 599000,
+    "salePrice": 449000,
+    "rating": 4.5,
+    "reviews": 91,
+    "badge": "Sale",
+    "colors": [
+      {
+        "name": "Black",
+        "hex": "#111111",
+        "tone": "#3a3a3a",
+        "image": "/hero/trousers.webp"
+      },
+      {
+        "name": "Craft Khaki",
+        "hex": "#8a7f63",
+        "tone": "#cfc8b4"
+      }
+    ],
+    "sizes": [
+      {
+        "label": "A/XS",
+        "stock": 12
+      },
+      {
+        "label": "A/S",
+        "stock": 12
+      },
+      {
+        "label": "A/M",
+        "stock": 12
+      },
+      {
+        "label": "A/L",
+        "stock": 2
+      },
+      {
+        "label": "A/XL",
+        "stock": 0
+      }
+    ],
+    "material": "65% polyester, 35% rayon",
+    "fit": "Wide fit."
+  },
+  {
+    "slug": "running-artist-long-sleeve-tee",
+    "name": "Running x Artist Long Sleeve Tee",
+    "gender": "women",
+    "category": "Tops",
+    "sport": "Running",
+    "blurb": "Long sleeve tee made for cool morning runs, with a quick-dry knit and an artist print on the back.",
+    "price": 1090000,
+    "rating": 4.6,
+    "reviews": 128,
+    "badge": "New",
+    "notice": "Excluded from vouchers & coupons",
+    "colors": [
+      {
+        "name": "Craft Khaki",
+        "hex": "#8a7f63",
+        "tone": "#cfc8b4"
+      },
+      {
+        "name": "Black",
+        "hex": "#111111",
+        "tone": "#3a3a3a"
+      }
+    ],
+    "sizes": [
+      {
+        "label": "A/XS",
+        "stock": 12
+      },
+      {
+        "label": "A/S",
+        "stock": 12
+      },
+      {
+        "label": "A/M",
+        "stock": 12
+      },
+      {
+        "label": "A/L",
+        "stock": 2
+      },
+      {
+        "label": "A/XL",
+        "stock": 0
+      }
+    ],
+    "material": "88% recycled polyester, 12% elastane",
+    "fit": "Regular fit. Model is 170 cm and wears A/S."
+  },
+  {
+    "slug": "airism-seamless-crew-tee",
+    "name": "AIRism Seamless Crew Tee",
+    "gender": "women",
+    "category": "Tops",
+    "sport": "Training",
+    "blurb": "Smooth, breathable crew neck with no side seams.",
+    "price": 249000,
+    "rating": 4.8,
+    "reviews": 412,
+    "colors": [
+      {
+        "name": "Off White",
+        "hex": "#f2efe8",
+        "tone": "#f7f5f0"
+      },
+      {
+        "name": "Black",
+        "hex": "#111111",
+        "tone": "#3a3a3a"
+      },
+      {
+        "name": "Sage",
+        "hex": "#8fa38a",
+        "tone": "#c4d0c0"
+      },
+      {
+        "name": "Navy",
+        "hex": "#1f2a44",
+        "tone": "#5c6680"
+      }
+    ],
+    "sizes": [
+      {
+        "label": "A/XS",
+        "stock": 12
+      },
+      {
+        "label": "A/S",
+        "stock": 12
+      },
+      {
+        "label": "A/M",
+        "stock": 12
+      },
+      {
+        "label": "A/L",
+        "stock": 2
+      },
+      {
+        "label": "A/XL",
+        "stock": 12
+      }
+    ],
+    "material": "90% nylon, 10% spandex",
+    "fit": "Relaxed fit."
+  },
+  {
+    "slug": "dry-ex-running-tank",
+    "name": "Dry-EX Running Tank",
+    "gender": "women",
+    "category": "Tops",
+    "sport": "Running",
+    "blurb": "Featherweight tank with mesh back panel.",
+    "price": 399000,
+    "salePrice": 299000,
+    "rating": 4.4,
+    "reviews": 57,
+    "badge": "Sale",
+    "colors": [
+      {
+        "name": "Black",
+        "hex": "#111111",
+        "tone": "#3a3a3a"
+      },
+      {
+        "name": "Sage",
+        "hex": "#8fa38a",
+        "tone": "#c4d0c0"
+      }
+    ],
+    "sizes": [
+      {
+        "label": "A/XS",
+        "stock": 0
+      },
+      {
+        "label": "A/S",
+        "stock": 12
+      },
+      {
+        "label": "A/M",
+        "stock": 12
+      },
+      {
+        "label": "A/L",
+        "stock": 2
+      },
+      {
+        "label": "A/XL",
+        "stock": 12
+      }
+    ],
+    "material": "100% polyester",
+    "fit": "Slim fit."
+  },
+  {
+    "slug": "half-zip-training-top",
+    "name": "Half-Zip Training Top",
+    "gender": "women",
+    "category": "Tops",
+    "sport": "Training",
+    "blurb": "Brushed-back half zip for warm-ups.",
+    "price": 599000,
+    "rating": 4.5,
+    "reviews": 89,
+    "badge": "Limited",
+    "colors": [
+      {
+        "name": "Navy",
+        "hex": "#1f2a44",
+        "tone": "#5c6680"
+      },
+      {
+        "name": "Craft Khaki",
+        "hex": "#8a7f63",
+        "tone": "#cfc8b4"
+      },
+      {
+        "name": "Off White",
+        "hex": "#f2efe8",
+        "tone": "#f7f5f0"
+      }
+    ],
+    "sizes": [
+      {
+        "label": "A/XS",
+        "stock": 12
+      },
+      {
+        "label": "A/S",
+        "stock": 12
+      },
+      {
+        "label": "A/M",
+        "stock": 12
+      },
+      {
+        "label": "A/L",
+        "stock": 2
+      },
+      {
+        "label": "A/XL",
+        "stock": 12
+      }
+    ],
+    "material": "92% polyester, 8% elastane",
+    "fit": "Regular fit."
+  },
+  {
+    "slug": "ultra-stretch-active-jogger",
+    "name": "Ultra Stretch Active Jogger",
+    "gender": "women",
+    "category": "Bottoms",
+    "sport": "Training",
+    "blurb": "Tapered jogger with four-way stretch.",
+    "price": 499000,
+    "rating": 4.7,
+    "reviews": 203,
+    "colors": [
+      {
+        "name": "Black",
+        "hex": "#111111",
+        "tone": "#3a3a3a"
+      },
+      {
+        "name": "Navy",
+        "hex": "#1f2a44",
+        "tone": "#5c6680"
+      }
+    ],
+    "sizes": [
+      {
+        "label": "A/XS",
+        "stock": 12
+      },
+      {
+        "label": "A/S",
+        "stock": 12
+      },
+      {
+        "label": "A/M",
+        "stock": 12
+      },
+      {
+        "label": "A/L",
+        "stock": 2
+      },
+      {
+        "label": "A/XL",
+        "stock": 12
+      }
+    ],
+    "material": "87% polyester, 13% spandex",
+    "fit": "Tapered fit."
+  },
+  {
+    "slug": "pocketable-parka",
+    "name": "Pocketable UV Protection Parka",
+    "gender": "women",
+    "category": "Outerwear",
+    "sport": "Lifestyle",
+    "blurb": "Packs into its own pocket. UPF 40+.",
+    "price": 599000,
+    "salePrice": 449000,
+    "rating": 4.3,
+    "reviews": 76,
+    "badge": "Sale",
+    "colors": [
+      {
+        "name": "Sage",
+        "hex": "#8fa38a",
+        "tone": "#c4d0c0"
+      },
+      {
+        "name": "Black",
+        "hex": "#111111",
+        "tone": "#3a3a3a"
+      },
+      {
+        "name": "Off White",
+        "hex": "#f2efe8",
+        "tone": "#f7f5f0"
+      }
+    ],
+    "sizes": [
+      {
+        "label": "A/XS",
+        "stock": 12
+      },
+      {
+        "label": "A/S",
+        "stock": 12
+      },
+      {
+        "label": "A/M",
+        "stock": 0
+      },
+      {
+        "label": "A/L",
+        "stock": 2
+      },
+      {
+        "label": "A/XL",
+        "stock": 12
+      }
+    ],
+    "material": "100% nylon",
+    "fit": "Relaxed fit."
+  },
+  {
+    "slug": "dry-ex-crew-tee-men",
+    "name": "Dry-EX Crew Neck Tee",
+    "gender": "men",
+    "category": "Tops",
+    "sport": "Running",
+    "blurb": "Quick-dry tee with a smooth hand.",
+    "price": 299000,
+    "rating": 4.6,
+    "reviews": 318,
+    "badge": "New",
+    "colors": [
+      {
+        "name": "Black",
+        "hex": "#111111",
+        "tone": "#3a3a3a"
+      },
+      {
+        "name": "Navy",
+        "hex": "#1f2a44",
+        "tone": "#5c6680"
+      },
+      {
+        "name": "Off White",
+        "hex": "#f2efe8",
+        "tone": "#f7f5f0"
+      }
+    ],
+    "sizes": [
+      {
+        "label": "A/XS",
+        "stock": 12
+      },
+      {
+        "label": "A/S",
+        "stock": 12
+      },
+      {
+        "label": "A/M",
+        "stock": 12
+      },
+      {
+        "label": "A/L",
+        "stock": 2
+      },
+      {
+        "label": "A/XL",
+        "stock": 12
+      }
+    ],
+    "material": "100% polyester",
+    "fit": "Regular fit."
+  },
+  {
+    "slug": "blocktech-jacket",
+    "name": "Blocktech Jacket",
+    "gender": "men",
+    "category": "Outerwear",
+    "sport": "Lifestyle",
+    "blurb": "Windproof, water-repellent shell.",
+    "price": 999000,
+    "rating": 4.5,
+    "reviews": 141,
+    "colors": [
+      {
+        "name": "Craft Khaki",
+        "hex": "#8a7f63",
+        "tone": "#cfc8b4"
+      },
+      {
+        "name": "Black",
+        "hex": "#111111",
+        "tone": "#3a3a3a"
+      }
+    ],
+    "sizes": [
+      {
+        "label": "A/XS",
+        "stock": 0
+      },
+      {
+        "label": "A/S",
+        "stock": 12
+      },
+      {
+        "label": "A/M",
+        "stock": 12
+      },
+      {
+        "label": "A/L",
+        "stock": 2
+      },
+      {
+        "label": "A/XL",
+        "stock": 12
+      }
+    ],
+    "material": "100% polyester",
+    "fit": "Regular fit."
+  },
+  {
+    "slug": "sweat-shorts-men",
+    "name": "Sweat Shorts",
+    "gender": "men",
+    "category": "Bottoms",
+    "sport": "Training",
+    "blurb": "Soft loopback cotton shorts.",
+    "price": 299000,
+    "salePrice": 199000,
+    "rating": 4.2,
+    "reviews": 64,
+    "badge": "Sale",
+    "colors": [
+      {
+        "name": "Navy",
+        "hex": "#1f2a44",
+        "tone": "#5c6680"
+      },
+      {
+        "name": "Sage",
+        "hex": "#8fa38a",
+        "tone": "#c4d0c0"
+      }
+    ],
+    "sizes": [
+      {
+        "label": "A/XS",
+        "stock": 12
+      },
+      {
+        "label": "A/S",
+        "stock": 12
+      },
+      {
+        "label": "A/M",
+        "stock": 12
+      },
+      {
+        "label": "A/L",
+        "stock": 2
+      },
+      {
+        "label": "A/XL",
+        "stock": 12
+      }
+    ],
+    "material": "100% cotton",
+    "fit": "Regular fit."
+  },
+  {
+    "slug": "kids-airism-tee",
+    "name": "Kids AIRism Cotton Tee",
+    "gender": "kids",
+    "category": "Tops",
+    "sport": "Lifestyle",
+    "blurb": "Cool, soft everyday tee for kids.",
+    "price": 149000,
+    "rating": 4.8,
+    "reviews": 97,
+    "badge": "New",
+    "colors": [
+      {
+        "name": "Off White",
+        "hex": "#f2efe8",
+        "tone": "#f7f5f0"
+      },
+      {
+        "name": "Sage",
+        "hex": "#8fa38a",
+        "tone": "#c4d0c0"
+      },
+      {
+        "name": "Navy",
+        "hex": "#1f2a44",
+        "tone": "#5c6680"
+      }
+    ],
+    "sizes": [
+      {
+        "label": "A/XS",
+        "stock": 12
+      },
+      {
+        "label": "A/S",
+        "stock": 12
+      },
+      {
+        "label": "A/M",
+        "stock": 12
+      },
+      {
+        "label": "A/L",
+        "stock": 2
+      },
+      {
+        "label": "A/XL",
+        "stock": 12
+      }
+    ],
+    "material": "50% cotton, 50% polyester",
+    "fit": "Regular fit."
+  },
+  {
+    "slug": "kids-fleece-jacket",
+    "name": "Kids Fleece Full-Zip Jacket",
+    "gender": "kids",
+    "category": "Outerwear",
+    "sport": "Lifestyle",
+    "blurb": "Warm, light fleece for school runs.",
+    "price": 299000,
+    "rating": 4.7,
+    "reviews": 45,
+    "colors": [
+      {
+        "name": "Craft Khaki",
+        "hex": "#8a7f63",
+        "tone": "#cfc8b4"
+      },
+      {
+        "name": "Navy",
+        "hex": "#1f2a44",
+        "tone": "#5c6680"
+      }
+    ],
+    "sizes": [
+      {
+        "label": "A/XS",
+        "stock": 12
+      },
+      {
+        "label": "A/S",
+        "stock": 12
+      },
+      {
+        "label": "A/M",
+        "stock": 12
+      },
+      {
+        "label": "A/L",
+        "stock": 2
+      },
+      {
+        "label": "A/XL",
+        "stock": 12
+      }
+    ],
+    "material": "100% polyester",
+    "fit": "Regular fit."
+  },
+  {
+    "slug": "kids-dry-pants",
+    "name": "Kids Dry Pants",
+    "gender": "kids",
+    "category": "Bottoms",
+    "sport": "Training",
+    "blurb": "Stretchy pants that dry fast.",
+    "price": 199000,
+    "salePrice": 149000,
+    "rating": 4.4,
+    "reviews": 22,
+    "badge": "Sale",
+    "colors": [
+      {
+        "name": "Black",
+        "hex": "#111111",
+        "tone": "#3a3a3a"
+      }
+    ],
+    "sizes": [
+      {
+        "label": "A/XS",
+        "stock": 12
+      },
+      {
+        "label": "A/S",
+        "stock": 12
+      },
+      {
+        "label": "A/M",
+        "stock": 12
+      },
+      {
+        "label": "A/L",
+        "stock": 2
+      },
+      {
+        "label": "A/XL",
+        "stock": 12
+      }
+    ],
+    "material": "100% polyester",
+    "fit": "Regular fit."
+  }
+]

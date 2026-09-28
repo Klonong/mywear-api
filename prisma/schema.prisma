@@ -1,0 +1,388 @@
+// MyWear store data model (prd.md §6). Money is stored as integer IDR.
+
+generator client {
+  provider     = "prisma-client"
+  output       = "../src/generated/prisma"
+  moduleFormat = "cjs"
+  // extensionless imports so ts-node (seed) and ts-jest (tests) can load the TS sources directly
+  importFileExtension = ""
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+enum Gender {
+  women
+  men
+  kids
+}
+
+enum Role {
+  customer
+  admin
+  merchandiser
+  support
+}
+
+enum Badge {
+  New
+  Sale
+  Limited
+}
+
+enum ProductStatus {
+  draft
+  published
+  archived
+}
+
+enum OrderStatus {
+  pending_payment
+  paid
+  processing
+  shipped
+  delivered
+  cancelled
+  return_requested
+  returned
+  refunded
+}
+
+enum DeliveryMethod {
+  standard
+  express
+}
+
+enum PaymentMethod {
+  card
+  ewallet
+  va
+}
+
+enum PaymentStatus {
+  pending
+  paid
+  failed
+  refunded
+}
+
+enum PromotionType {
+  percent
+  fixed
+  free_delivery
+}
+
+enum ReviewFit {
+  runs_small
+  true_to_size
+  runs_large
+}
+
+enum ReviewStatus {
+  pending
+  approved
+  rejected
+}
+
+model User {
+  id              String        @id @default(cuid())
+  email           String        @unique
+  passwordHash    String
+  name            String
+  phone           String?
+  birthday        DateTime?     @db.Date
+  preferredGender Gender?
+  role            Role          @default(customer)
+  createdAt       DateTime      @default(now())
+  sessions        Session[]
+  resets          PasswordReset[]
+  addresses       Address[]
+  cart            Cart?
+  wishlist        WishlistItem[]
+  orders          Order[]
+  reviews         Review[]
+}
+
+/// One row per signed-in device; the refresh cookie holds the raw token, we store its hash.
+model Session {
+  id        String   @id @default(cuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  tokenHash String   @unique
+  expiresAt DateTime
+  createdAt DateTime @default(now())
+}
+
+model PasswordReset {
+  id        String    @id @default(cuid())
+  userId    String
+  user      User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  tokenHash String    @unique
+  expiresAt DateTime
+  usedAt    DateTime?
+}
+
+model Address {
+  id        String  @id @default(cuid())
+  userId    String
+  user      User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  recipient String
+  phone     String
+  line1     String
+  line2     String?
+  city      String
+  province  String?
+  postcode  String
+  isDefault Boolean @default(false)
+}
+
+model Category {
+  id        String     @id @default(cuid())
+  gender    Gender
+  name      String
+  slug      String
+  sortOrder Int        @default(0)
+  parentId  String?
+  parent    Category?  @relation("CategoryTree", fields: [parentId], references: [id])
+  children  Category[] @relation("CategoryTree")
+  products  Product[]
+
+  @@unique([gender, slug])
+}
+
+model Product {
+  id              String         @id @default(cuid())
+  slug            String         @unique
+  name            String
+  description     String
+  gender          Gender
+  categoryId      String
+  category        Category       @relation(fields: [categoryId], references: [id])
+  sport           String
+  material        String
+  fit             String
+  badge           Badge?
+  notice          String?
+  /// false = "Excluded from vouchers & coupons"
+  voucherEligible Boolean        @default(true)
+  status          ProductStatus  @default(published)
+  ratingAvg       Float          @default(0)
+  ratingCount     Int            @default(0)
+  createdAt       DateTime       @default(now())
+  colors          ProductColor[]
+  reviews         Review[]
+  wishlistedBy    WishlistItem[]
+
+  @@index([gender, status])
+}
+
+model ProductColor {
+  id        String         @id @default(cuid())
+  productId String
+  product   Product        @relation(fields: [productId], references: [id], onDelete: Cascade)
+  name      String
+  hex       String
+  tone      String
+  sortOrder Int            @default(0)
+  images    ProductImage[]
+  skus      Sku[]
+
+  @@unique([productId, name])
+}
+
+model ProductImage {
+  id        String       @id @default(cuid())
+  colorId   String
+  color     ProductColor @relation(fields: [colorId], references: [id], onDelete: Cascade)
+  url       String
+  alt       String
+  sortOrder Int          @default(0)
+}
+
+/// Sellable unit: one colour in one size. available = stock - reserved.
+model Sku {
+  id         String        @id @default(cuid())
+  colorId    String
+  color      ProductColor  @relation(fields: [colorId], references: [id], onDelete: Cascade)
+  size       String
+  sku        String        @unique
+  price      Int
+  salePrice  Int?
+  stock      Int           @default(0)
+  reserved   Int           @default(0)
+  cartItems  CartItem[]
+  orderItems OrderItem[]
+  alerts     StockAlert[]
+
+  @@unique([colorId, size])
+}
+
+model Cart {
+  id        String     @id @default(cuid())
+  /// Guests are identified by this token in an httpOnly cookie
+  token     String     @unique
+  userId    String?    @unique
+  user      User?      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  promoCode String?
+  updatedAt DateTime   @updatedAt
+  items     CartItem[]
+}
+
+model CartItem {
+  id     String @id @default(cuid())
+  cartId String
+  cart   Cart   @relation(fields: [cartId], references: [id], onDelete: Cascade)
+  skuId  String
+  sku    Sku    @relation(fields: [skuId], references: [id], onDelete: Cascade)
+  qty    Int
+
+  @@unique([cartId, skuId])
+}
+
+model WishlistItem {
+  id        String   @id @default(cuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  productId String
+  product   Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+  createdAt DateTime @default(now())
+
+  @@unique([userId, productId])
+}
+
+model Order {
+  id                   String         @id @default(cuid())
+  number               String         @unique
+  userId               String?
+  user                 User?          @relation(fields: [userId], references: [id], onDelete: SetNull)
+  email                String
+  phone                String
+  status               OrderStatus    @default(pending_payment)
+  deliveryMethod       DeliveryMethod
+  paymentMethod        PaymentMethod
+  promoCode            String?
+  subtotal             Int
+  discount             Int
+  shipping             Int
+  total                Int
+  addressSnapshot      Json
+  /// Stock stays reserved until this time while payment is pending (CHK-6)
+  reservationExpiresAt DateTime?
+  paidAt               DateTime?
+  createdAt            DateTime       @default(now())
+  items                OrderItem[]
+  payments             Payment[]
+  shipments            Shipment[]
+  returns              ReturnRequest[]
+  notes                OrderNote[]
+
+  @@index([status, reservationExpiresAt])
+}
+
+model OrderItem {
+  id            String   @id @default(cuid())
+  orderId       String
+  order         Order    @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  skuId         String
+  sku           Sku      @relation(fields: [skuId], references: [id])
+  productSlug   String
+  nameSnapshot  String
+  colorSnapshot String
+  sizeSnapshot  String
+  unitPrice     Int
+  qty           Int
+  reviews       Review[]
+}
+
+model Payment {
+  id          String        @id @default(cuid())
+  orderId     String
+  order       Order         @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  provider    String
+  providerRef String?
+  method      PaymentMethod
+  status      PaymentStatus @default(pending)
+  amount      Int
+  createdAt   DateTime      @default(now())
+}
+
+model Shipment {
+  id             String   @id @default(cuid())
+  orderId        String
+  order          Order    @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  courier        String
+  trackingNumber String
+  createdAt      DateTime @default(now())
+}
+
+model OrderNote {
+  id        String   @id @default(cuid())
+  orderId   String
+  order     Order    @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  author    String
+  body      String
+  createdAt DateTime @default(now())
+}
+
+model ReturnRequest {
+  id        String   @id @default(cuid())
+  orderId   String
+  order     Order    @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  /// [{ orderItemId, qty }]
+  items     Json
+  reason    String
+  createdAt DateTime @default(now())
+}
+
+model Promotion {
+  id         String        @id @default(cuid())
+  code       String        @unique
+  type       PromotionType
+  /// percent: 10 = 10%; fixed: IDR amount; free_delivery: unused
+  value      Int           @default(0)
+  minSpend   Int           @default(0)
+  startsAt   DateTime?
+  endsAt     DateTime?
+  usageLimit Int?
+  usedCount  Int           @default(0)
+  active     Boolean       @default(true)
+  createdAt  DateTime      @default(now())
+}
+
+model Review {
+  id          String       @id @default(cuid())
+  productId   String
+  product     Product      @relation(fields: [productId], references: [id], onDelete: Cascade)
+  userId      String
+  user        User         @relation(fields: [userId], references: [id], onDelete: Cascade)
+  orderItemId String?
+  orderItem   OrderItem?   @relation(fields: [orderItemId], references: [id], onDelete: SetNull)
+  rating      Int
+  fit         ReviewFit
+  title       String
+  body        String
+  status      ReviewStatus @default(pending)
+  createdAt   DateTime     @default(now())
+
+  @@unique([productId, userId])
+}
+
+model StockAlert {
+  id         String    @id @default(cuid())
+  skuId      String
+  sku        Sku       @relation(fields: [skuId], references: [id], onDelete: Cascade)
+  email      String
+  createdAt  DateTime  @default(now())
+  notifiedAt DateTime?
+
+  @@unique([skuId, email])
+}
+
+model NewsletterSubscriber {
+  id          String    @id @default(cuid())
+  email       String    @unique
+  tokenHash   String    @unique
+  confirmedAt DateTime?
+  createdAt   DateTime  @default(now())
+}
