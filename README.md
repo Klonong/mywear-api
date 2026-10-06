@@ -45,7 +45,7 @@ The e2e suite covers the risky paths: guest bag merge on sign-up, promo rules, c
 | Checkout | `POST /checkout` · `GET /me/orders` · `GET /me/orders/:number` · `POST /me/orders/:number/returns` · `GET /orders/lookup?number=&email=` |
 | Payments | `POST /payments/webhook` (HMAC signed) · `POST /payments/mock/:number/confirm` (dev only) |
 | Marketing | `POST /stock-alerts` · `POST /newsletter` · `POST /newsletter/confirm` |
-| Admin: catalogue (merchandiser) | products CRUD + archive, colours, images, SKUs, `GET /admin/inventory`, CSV export/import at `/admin/inventory.csv`, categories, promotions |
+| Admin: catalogue (merchandiser) | products CRUD + archive, colours, images, `POST /admin/uploads` (multipart `file` → Cloudflare R2, returns `url`), SKUs, `GET /admin/inventory`, CSV export/import at `/admin/inventory.csv`, categories, promotions |
 | Admin: operations (support) | orders list/detail, status changes, shipments, notes · review moderation · customers · `PATCH /admin/users/:id/role` (admin) · `GET /admin/stats` |
 | Health | `GET /health` |
 
@@ -66,6 +66,6 @@ These are stubbed on purpose and marked with `ponytail:` comments:
 
 - **Payment gateway**: the `mock` provider. Plug Midtrans / Xendit / Stripe into `OrdersService.checkout` (hosted payment URL) and refunds into `setStatus`.
 - **Email**: `MailService` logs to the console. Swap in Resend or SendGrid.
-- **Image upload**: admin endpoints take image URLs. Add presigned S3 uploads with the admin UI.
+- **Image upload**: `POST /admin/uploads` streams through the API to Cloudflare R2 (JPEG/PNG/WebP/AVIF checked by file signature, 5 MB cap). Set the `R2_*` variables in `.env`; without them uploads answer 503. Replaced images are not deleted from the bucket, and large/frequent uploads would be better as presigned PUTs.
 - **Search and filters** run in memory over the published catalogue: fine to ~10k SKUs, then move to SQL or Meilisearch.
 - **Redis** isn't used: carts, sessions and reservations live in Postgres, which is enough for one region.

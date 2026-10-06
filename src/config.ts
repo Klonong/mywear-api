@@ -24,6 +24,27 @@ export const env = {
   get paymentWebhookSecret() {
     return required('PAYMENT_WEBHOOK_SECRET');
   },
+  /** Cloudflare R2 for product images. Optional: without it the API runs and uploads answer 503. */
+  get r2() {
+    const e = process.env;
+    const { R2_ACCOUNT_ID, R2_ACCESS_KEY_ID, R2_SECRET_ACCESS_KEY } = e;
+    const { R2_BUCKET, R2_PUBLIC_URL } = e;
+    if (
+      !R2_ACCOUNT_ID ||
+      !R2_ACCESS_KEY_ID ||
+      !R2_SECRET_ACCESS_KEY ||
+      !R2_BUCKET ||
+      !R2_PUBLIC_URL
+    )
+      return null;
+    return {
+      accountId: R2_ACCOUNT_ID,
+      accessKeyId: R2_ACCESS_KEY_ID,
+      secretAccessKey: R2_SECRET_ACCESS_KEY,
+      bucket: R2_BUCKET,
+      publicUrl: R2_PUBLIC_URL.replace(/\/+$/, ''),
+    };
+  },
 };
 
 export const ACCESS_TOKEN_TTL = '15m';

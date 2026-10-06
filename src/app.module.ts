@@ -10,6 +10,7 @@ import {
 import { AccountModule } from './account/account.controller';
 import { AdminCatalogController } from './admin/catalog.controller';
 import { AdminOperationsController } from './admin/operations.controller';
+import { AdminUploadsController } from './admin/uploads.controller';
 import { AuthModule } from './auth/auth.controller';
 import { CartModule } from './cart/cart.controller';
 import { CatalogModule } from './catalog/catalog.controller';
@@ -57,6 +58,7 @@ class HealthController {
     HealthController,
     AdminCatalogController,
     AdminOperationsController,
+    AdminUploadsController,
   ],
   providers: [
     { provide: APP_GUARD, useClass: ThrottlerGuard },

@@ -178,7 +178,7 @@ export class AdminCatalogController {
     @Param('id') id: string,
     @Body(new ParseArrayPipe({ items: ImageDto })) images: ImageDto[],
   ) {
-    // ponytail: takes URLs; direct S3 upload (presigned PUT) comes with the admin UI
+    // URLs come from POST /admin/uploads (R2) or any absolute URL
     await this.prisma.$transaction([
       this.prisma.productImage.deleteMany({ where: { colorId: id } }),
       this.prisma.productImage.createMany({
